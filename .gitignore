@@ -1,0 +1,19 @@
+# Build
+build/
+.gradle/
+out/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+
+# OS
+.DS_Store
+
+# Runtime
+*.db
+
+# Test server
+test-server/
