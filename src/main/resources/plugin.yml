@@ -1,0 +1,10 @@
+name: MineFi
+version: '${version}'
+main: com.minefi.MineFiPlugin
+api-version: '1.20'
+description: Payment gateway for Minecraft — crypto wallets, Stripe, and more
+softdepend: [Vault]
+commands:
+  wallet:
+    description: Manage your crypto wallet connection
+    usage: /wallet <connect|disconnect|info|sign>

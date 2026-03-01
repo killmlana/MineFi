@@ -1,0 +1,36 @@
+providers:
+  crypto:
+    enabled: false
+    walletconnect:
+      project-id: ""
+      relay-url: "wss://relay.walletconnect.com"
+    chain:
+      rpc-url: ""
+      chain-id: 1
+    vault:
+      server-hot-wallet: ""
+      server-hot-wallet-key: ""
+      escrow-contract: ""
+  stripe:
+    enabled: false
+    secret-key: ""
+    currency: "usd"
+    poll-interval-seconds: 10
+    amounts: [5, 10, 25, 50]
+    success-url: "https://minefi.gg/success"
+    cancel-url: "https://minefi.gg/cancel"
+
+  razorpay:
+    enabled: false
+    key-id: ""
+    key-secret: ""
+    currency: "inr"
+    poll-interval-seconds: 10
+    amounts: [100, 500, 1000, 5000]
+    success-url: "https://minefi.gg/success"
+
+vault:
+  enabled: true
+  tx-timeout-seconds: 60
+  withdrawal-cooldown-seconds: 300
+  merkle-root-interval-minutes: 60
