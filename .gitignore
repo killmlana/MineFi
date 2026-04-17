@@ -17,3 +17,6 @@ out/
 
 # Test server
 test-server/
+
+# Website (deployed separately via Cloudflare Pages)
+site/
