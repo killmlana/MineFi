@@ -13,8 +13,8 @@ import com.minefi.vault.MineFiEconomy
 import net.milkbowl.vault.economy.Economy
 import org.bukkit.plugin.ServicePriority
 import org.bukkit.plugin.java.JavaPlugin
-import org.web3j.utils.Convert
 import java.io.File
+import java.math.BigDecimal
 
 class MineFiPlugin : JavaPlugin() {
 
@@ -89,7 +89,7 @@ class MineFiPlugin : JavaPlugin() {
 
             val leaves = allPlayers.map { (uuid, balance) ->
                 val player = db.getPlayer(uuid) ?: return@map null
-                val weiBalance = Convert.toWei(balance, Convert.Unit.ETHER).toBigInteger()
+                val weiBalance = balance.multiply(BigDecimal.TEN.pow(18)).toBigInteger()
                 BalanceLeaf(player.walletAddress, weiBalance)
             }.filterNotNull()
 
