@@ -2,7 +2,7 @@
 
 The on-chain escrow that holds player deposits, relays server-signed withdrawals, and anchors off-chain balances via a Merkle root so players can recover funds if the server goes dark.
 
-Source: [`test-server/hardhat/contracts/MineFiVault.sol`](../test-server/hardhat/contracts/MineFiVault.sol)
+Source: [`contracts/MineFiVault.sol`](../contracts/MineFiVault.sol)
 
 ## Model
 
