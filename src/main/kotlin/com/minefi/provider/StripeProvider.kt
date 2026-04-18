@@ -29,8 +29,8 @@ class StripeProvider : PaymentProvider {
     private var secretKey = ""
     private var currency = "usd"
     private var pollIntervalSeconds = 30L
-    private var successUrl = "https://minefi.gg/success"
-    private var cancelUrl = "https://minefi.gg/cancel"
+    private var successUrl = "https://minefi.pages.dev/success"
+    private var cancelUrl = "https://minefi.pages.dev/failure"
     private val httpClient = OkHttpClient()
     private val gson = Gson()
     private val pendingSessions = ConcurrentHashMap<String, PendingCheckout>()
@@ -48,8 +48,8 @@ class StripeProvider : PaymentProvider {
         secretKey = config.getString("secret-key") ?: ""
         currency = config.getString("currency") ?: "usd"
         pollIntervalSeconds = config.getLong("poll-interval-seconds", 30)
-        successUrl = config.getString("success-url") ?: "https://minefi.gg/success"
-        cancelUrl = config.getString("cancel-url") ?: "https://minefi.gg/cancel"
+        successUrl = config.getString("success-url") ?: "https://minefi.pages.dev/success"
+        cancelUrl = config.getString("cancel-url") ?: "https://minefi.pages.dev/failure"
 
         if (secretKey.isBlank()) {
             plugin.logger.warning("Stripe secret key not configured")

@@ -90,7 +90,7 @@ object JsonRpc {
                     "metadata" to mapOf(
                         "name" to "MineFi",
                         "description" to "Minecraft WalletConnect Bridge",
-                        "url" to "https://minefi.gg",
+                        "url" to "",
                         "icons" to listOf<String>(),
                     ),
                 ),

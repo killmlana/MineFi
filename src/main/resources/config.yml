@@ -17,8 +17,10 @@ providers:
     currency: "usd"
     poll-interval-seconds: 10
     amounts: [5, 10, 25, 50]
-    success-url: "https://minefi.gg/success"
-    cancel-url: "https://minefi.gg/cancel"
+    # Default redirect pages hosted on Cloudflare Pages.
+    # To host your own, see docs/REDIRECT_PAGES.md
+    success-url: "https://minefi.pages.dev/success"
+    cancel-url: "https://minefi.pages.dev/failure"
 
   razorpay:
     enabled: false
@@ -27,7 +29,9 @@ providers:
     currency: "inr"
     poll-interval-seconds: 10
     amounts: [100, 500, 1000, 5000]
-    success-url: "https://minefi.gg/success"
+    # Default redirect page hosted on Cloudflare Pages.
+    # To host your own, see docs/REDIRECT_PAGES.md
+    success-url: "https://minefi.pages.dev/success"
 
 vault:
   enabled: true
