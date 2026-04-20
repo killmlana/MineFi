@@ -53,13 +53,9 @@ Balances are managed server-side in USD. The crypto path uses an on-chain escrow
 
 <img src="https://minefi-assets.saikia.me/clips/history.gif" alt="Transaction history" width="600">
 
-**Vault economy** &mdash; every shop plugin keeps working, untouched
+**Emergency withdrawal** &mdash; Merkle proof lets players recover on-chain funds even if the server goes offline
 
-**Book GUI** &mdash; no commands to memorize
-
-**Merkle root anchoring** &mdash; emergency withdraw if the server disappears
-
-**Live conversion** &mdash; ETH / INR / USD via CoinGecko
+**Vault API** &mdash; registers as an economy provider, works with any Vault-compatible plugin
 
 <details>
 <summary>Architecture</summary>
