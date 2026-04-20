@@ -8,8 +8,8 @@
 
 <br><br>
 
-Payment gateway plugin for Minecraft servers.
-Crypto, cards, and UPI through one plugin that plugs into Vault.
+Economy plugin for Minecraft servers.
+Integrates crypto wallets, card, and UPI payment processing with the Vault API.
 
 <br>
 
@@ -31,9 +31,9 @@ Crypto, cards, and UPI through one plugin that plugs into Vault.
 
 ## About
 
-MineFi lets players deposit and spend real money in-game. It connects crypto wallets via WalletConnect v2, accepts card and UPI payments through Stripe and Razorpay, and registers as a [Vault](https://github.com/MilkBowl/VaultAPI) economy provider so existing shop plugins work without changes.
+MineFi is a server-side economy plugin that gives server operators a way to integrate external payment processing into their Vault-based economy. It connects player wallets via WalletConnect v2, processes payments through Stripe and Razorpay, and registers as a [Vault](https://github.com/MilkBowl/VaultAPI) economy provider so existing shop plugins work without modification.
 
-Deposited funds are tracked in USD. The crypto side uses an on-chain escrow contract ([`MineFiVault.sol`](contracts/MineFiVault.sol)) with EIP-712 signed withdrawals and periodic Merkle root publishing. If the server disappears, players can recover their on-chain funds directly from the contract.
+Balances are managed server-side in USD. The crypto path uses an on-chain escrow contract ([`MineFiVault.sol`](contracts/MineFiVault.sol)) with EIP-712 signed withdrawals and periodic Merkle root publishing, allowing players to verify their balances independently and recover funds directly from the contract if needed.
 
 ## Features
 

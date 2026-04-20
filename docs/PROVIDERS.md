@@ -1,6 +1,6 @@
 # Writing a Payment Provider
 
-A payment provider is anything that moves real money in or out of a player's MineFi balance. Crypto, Stripe, and Razorpay all implement the same interface — this doc walks through adding your own (PayPal, Coinbase Commerce, Paddle, a regional gateway, whatever).
+A payment provider is anything that processes external transactions and credits or debits a player's MineFi balance. Crypto, Stripe, and Razorpay all implement the same interface — this doc walks through adding your own (PayPal, Coinbase Commerce, Paddle, a regional gateway, whatever).
 
 ## The interface
 
