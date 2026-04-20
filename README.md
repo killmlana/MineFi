@@ -23,9 +23,6 @@ Integrates crypto wallets, card, and UPI payment processing with the Vault API.
 <img src="https://img.shields.io/badge/Vault-API-4B8BBE?style=flat-square" alt="Vault">
 <img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="MIT">
 
-<br><br>
-
-<img src="docs/media/WalletConnect.gif" alt="WalletConnect pairing" width="600">
 
 </div>
 
