@@ -25,7 +25,7 @@ Integrates crypto wallets, card, and UPI payment processing with the Vault API.
 
 <br><br>
 
-<img src="https://minefi-assets.saikia.me/clips/walletconnect-pair.gif" alt="WalletConnect pairing" width="600">
+<img src="docs/media/WalletConnect.gif" alt="WalletConnect pairing" width="600">
 
 </div>
 
@@ -37,29 +37,29 @@ Balances are managed server-side in USD. The crypto path uses an on-chain escrow
 
 ## Features
 
-**WalletConnect v2** &mdash; scan an in-game QR map to pair any wallet
+**WalletConnect v2**
 
-<img src="https://minefi-assets.saikia.me/clips/walletconnect-pair.gif" alt="WalletConnect pairing" width="600">
+<img src="docs/media/WalletConnect.gif" alt="WalletConnect pairing" width="600">
 
-**Crypto deposits** &mdash; deposit ETH through the in-game book
+**Crypto deposits**
 
 <img src="https://minefi-assets.saikia.me/clips/AddFunds.gif" alt="Adding funds" width="600">
 
-**Stripe + Razorpay** &mdash; cards, UPI, easy to extend
+**Stripe + Razorpay**
 
 <img src="docs/media/Razorpay.gif" alt="Razorpay payment" width="600">
 
-**Crypto withdrawals** &mdash; player signs with their wallet, server relays on-chain
+**Crypto withdrawals**
 
 <img src="https://minefi-assets.saikia.me/clips/Withdrawal.gif" alt="Withdrawal flow" width="600">
 
-**Transaction history** &mdash; every deposit and withdrawal tracked
+**Transaction history**
 
 <img src="https://minefi-assets.saikia.me/clips/history.gif" alt="Transaction history" width="600">
 
-**Emergency withdrawal** &mdash; Merkle proof lets players recover on-chain funds even if the server goes offline
+**Emergency withdrawal** &mdash; Merkle proof on-chain recovery
 
-**Vault API** &mdash; registers as an economy provider, works with any Vault-compatible plugin
+**Vault API** &mdash; works with any Vault-compatible plugin
 
 <details>
 <summary>Architecture</summary>
