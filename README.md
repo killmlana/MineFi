@@ -39,6 +39,10 @@ Balances are managed server-side in USD. The crypto path uses an on-chain escrow
 
 **WalletConnect v2** &mdash; scan an in-game QR map to pair any wallet
 
+<img src="https://minefi-assets.saikia.me/clips/WalletConnect.gif" alt="WalletConnect pairing" width="600">
+
+**Crypto deposits** &mdash; deposit ETH through the in-game book
+
 <img src="https://minefi-assets.saikia.me/clips/AddFunds.gif" alt="Adding funds" width="600">
 
 **Stripe + Razorpay** &mdash; cards, UPI, easy to extend
