@@ -70,7 +70,7 @@ object JsonRpc {
         chains: List<String>,
         methods: List<String>,
         events: List<String>,
-        metadataUrl: String = "https://minefi.pages.dev",
+        metadataUrl: String = "https://minefi.saikia.me",
     ): String {
         val payload = mapOf(
             "id" to nextId(),

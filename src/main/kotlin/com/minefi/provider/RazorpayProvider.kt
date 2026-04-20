@@ -31,7 +31,7 @@ class RazorpayProvider : PaymentProvider {
     private var keySecret = ""
     private var currency = "inr"
     private var pollIntervalSeconds = 10L
-    private var successUrl = "https://minefi.pages.dev/success"
+    private var successUrl = "https://minefi.saikia.me/success"
     private val httpClient = OkHttpClient()
     private val pendingOrders = ConcurrentHashMap<String, PendingOrder>()
     private val playerMapViews = ConcurrentHashMap<UUID, MapView>()
@@ -50,7 +50,7 @@ class RazorpayProvider : PaymentProvider {
         keySecret = config.getString("key-secret") ?: ""
         currency = config.getString("currency") ?: "inr"
         pollIntervalSeconds = config.getLong("poll-interval-seconds", 10)
-        successUrl = config.getString("success-url") ?: "https://minefi.pages.dev/success"
+        successUrl = config.getString("success-url") ?: "https://minefi.saikia.me/success"
 
         if (keyId.isBlank() || keySecret.isBlank()) {
             plugin.logger.warning("Razorpay credentials not configured")

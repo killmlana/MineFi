@@ -41,7 +41,7 @@ class CryptoProvider : PaymentProvider {
             sessionManager.handleRelayMessage(topic, message)
         }
 
-        val metadataUrl = config.getString("walletconnect.metadata-url") ?: "https://minefi.pages.dev"
+        val metadataUrl = config.getString("walletconnect.metadata-url") ?: "https://minefi.saikia.me"
 
         sessionManager = SessionManager(
             relay = relayClient,

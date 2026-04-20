@@ -25,8 +25,8 @@ providers:
     currency: "usd"
     poll-interval-seconds: 10
     amounts: [5, 10, 25, 50]
-    success-url: "https://minefi.pages.dev/success"
-    cancel-url: "https://minefi.pages.dev/failure"
+    success-url: "https://minefi.saikia.me/success"
+    cancel-url: "https://minefi.saikia.me/failure"
 
   razorpay:
     enabled: false
@@ -35,7 +35,7 @@ providers:
     currency: "inr"
     poll-interval-seconds: 10
     amounts: [100, 500, 1000, 5000]
-    success-url: "https://minefi.pages.dev/success"
+    success-url: "https://minefi.saikia.me/success"
 
 vault:
   enabled: true
@@ -68,8 +68,8 @@ vault:
 | `currency` | `usd` | Three-letter ISO code; Stripe uses lowercase |
 | `poll-interval-seconds` | `10` | How often MineFi polls Stripe for session completion. Drop to 5 for snappier UX, raise to 30 to cut API calls. |
 | `amounts` | `[5, 10, 25, 50]` | Preset buttons in the Book GUI deposit menu. In the configured currency. |
-| `success-url` | `https://minefi.pages.dev/success` | Where Stripe redirects the player after payment. Host your own — see [REDIRECT_PAGES.md](REDIRECT_PAGES.md). |
-| `cancel-url` | `https://minefi.pages.dev/failure` | Where Stripe redirects the player after cancellation. |
+| `success-url` | `https://minefi.saikia.me/success` | Where Stripe redirects the player after payment. Host your own — see [REDIRECT_PAGES.md](REDIRECT_PAGES.md). |
+| `cancel-url` | `https://minefi.saikia.me/failure` | Where Stripe redirects the player after cancellation. |
 
 ### `providers.razorpay`
 
@@ -81,7 +81,7 @@ vault:
 | `currency` | `inr` | Razorpay is India-focused; `inr` is typical |
 | `poll-interval-seconds` | `10` | Matches Stripe semantics |
 | `amounts` | `[100, 500, 1000, 5000]` | Preset amounts in paise-free units (e.g. 100 = ₹100) |
-| `success-url` | `https://minefi.pages.dev/success` | Where Razorpay redirects after payment — see [REDIRECT_PAGES.md](REDIRECT_PAGES.md). |
+| `success-url` | `https://minefi.saikia.me/success` | Where Razorpay redirects after payment — see [REDIRECT_PAGES.md](REDIRECT_PAGES.md). |
 
 ### `vault`
 

@@ -7,7 +7,7 @@
 </picture>
 <br>
 <p>Economy plugin for Minecraft servers.<br>Integrates crypto wallets, card, and UPI payment processing with the Vault API.</p>
-<a href="https://minefi.pages.dev">Website</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="docs/CONFIGURATION.md">Configuration</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="docs/FEATURES.md">Features</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="docs/CONTRACT.md">Contract</a>
+<a href="https://minefi.saikia.me">Website</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="docs/CONFIGURATION.md">Configuration</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="docs/FEATURES.md">Features</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="docs/CONTRACT.md">Contract</a>
 <br><br>
 <img src="https://img.shields.io/badge/Minecraft-1.20%2B-62B47A?style=flat-square&logo=minecraft&logoColor=white" alt="Minecraft">
 <img src="https://img.shields.io/badge/Kotlin-1.9-7F52FF?style=flat-square&logo=kotlin&logoColor=white" alt="Kotlin">

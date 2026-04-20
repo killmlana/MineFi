@@ -134,7 +134,7 @@ MineFi sends `callback_url` and `callback_method: "get"` when creating the payme
 
 ## Configuring the URLs
 
-MineFi ships with defaults pointing at `minefi.pages.dev`. That's fine for trying it out — your players will land on a generic success page hosted on Cloudflare Pages.
+MineFi ships with defaults pointing at `minefi.saikia.me`. That's fine for trying it out — your players will land on a generic success page hosted on Cloudflare Pages.
 
 For anything real, host your own. Once your pages are up, point MineFi at them in `plugins/MineFi/config.yml`:
 

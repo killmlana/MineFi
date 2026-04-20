@@ -38,7 +38,7 @@ class SessionManager(
     private val db: Database,
     private val logger: Logger,
     private val chainId: Int,
-    private val metadataUrl: String = "https://minefi.pages.dev",
+    private val metadataUrl: String = "https://minefi.saikia.me",
     private val onSessionEstablished: (UUID, String) -> Unit,
     private val onSessionFailed: (UUID, String) -> Unit = { _, _ -> },
     private val onSessionRequest: (UUID, Long, String) -> Unit,

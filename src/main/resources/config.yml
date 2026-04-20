@@ -4,7 +4,7 @@ providers:
     walletconnect:
       project-id: ""
       relay-url: "wss://relay.walletconnect.com"
-      metadata-url: "https://minefi.pages.dev"
+      metadata-url: "https://minefi.saikia.me"
     chain:
       rpc-url: ""
       chain-id: 1
@@ -20,8 +20,8 @@ providers:
     amounts: [5, 10, 25, 50]
     # Default redirect pages hosted on Cloudflare Pages.
     # To host your own, see docs/REDIRECT_PAGES.md
-    success-url: "https://minefi.pages.dev/success"
-    cancel-url: "https://minefi.pages.dev/failure"
+    success-url: "https://minefi.saikia.me/success"
+    cancel-url: "https://minefi.saikia.me/failure"
 
   razorpay:
     enabled: false
@@ -32,7 +32,7 @@ providers:
     amounts: [100, 500, 1000, 5000]
     # Default redirect page hosted on Cloudflare Pages.
     # To host your own, see docs/REDIRECT_PAGES.md
-    success-url: "https://minefi.pages.dev/success"
+    success-url: "https://minefi.saikia.me/success"
 
 vault:
   enabled: true
