@@ -34,7 +34,7 @@ Restart once to write `plugins/MineFi/config.yml`, fill in your keys, restart ag
 
 **Stripe + Razorpay** — cards, UPI, easy to extend
 
-<img src="https://minefi-assets.saikia.me/clips/Razorpay.gif?v=3" alt="Razorpay payment" width="600">
+<img src="https://minefi-assets.saikia.me/clips/razorpay-pay.gif" alt="Razorpay payment" width="600">
 
 **Crypto withdrawals** — player signs with their wallet, server relays on-chain
 
