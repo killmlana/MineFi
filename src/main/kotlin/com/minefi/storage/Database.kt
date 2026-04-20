@@ -25,6 +25,7 @@ data class DepositRecord(
     val playerUuid: UUID,
     val provider: String,
     val chain: String,
+    val walletAddress: String?,
     val amount: BigDecimal,
     val remaining: BigDecimal,
     val txRef: String,
@@ -99,12 +100,16 @@ class Database(file: File) {
                 player_uuid TEXT NOT NULL,
                 provider TEXT NOT NULL,
                 chain TEXT NOT NULL,
+                wallet_address TEXT,
                 amount TEXT NOT NULL,
                 remaining TEXT NOT NULL,
                 tx_ref TEXT NOT NULL,
                 timestamp INTEGER NOT NULL
             )
         """)
+        try {
+            conn.createStatement().executeUpdate("ALTER TABLE deposits ADD COLUMN wallet_address TEXT")
+        } catch (_: Exception) {}
     }
 
     fun savePlayer(uuid: UUID, walletAddress: String, chainId: Int) {
@@ -236,18 +241,19 @@ class Database(file: File) {
         return results
     }
 
-    fun saveDeposit(uuid: UUID, provider: String, chain: String, amount: BigDecimal, txRef: String) {
+    fun saveDeposit(uuid: UUID, provider: String, chain: String, amount: BigDecimal, txRef: String, walletAddress: String? = null) {
         val stmt = conn.prepareStatement("""
-            INSERT INTO deposits (player_uuid, provider, chain, amount, remaining, tx_ref, timestamp)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO deposits (player_uuid, provider, chain, wallet_address, amount, remaining, tx_ref, timestamp)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         """)
         stmt.setString(1, uuid.toString())
         stmt.setString(2, provider)
         stmt.setString(3, chain)
-        stmt.setString(4, amount.toPlainString())
+        stmt.setString(4, walletAddress)
         stmt.setString(5, amount.toPlainString())
-        stmt.setString(6, txRef)
-        stmt.setLong(7, System.currentTimeMillis() / 1000)
+        stmt.setString(6, amount.toPlainString())
+        stmt.setString(7, txRef)
+        stmt.setLong(8, System.currentTimeMillis() / 1000)
         stmt.executeUpdate()
     }
 
@@ -262,6 +268,7 @@ class Database(file: File) {
                 playerUuid = UUID.fromString(rs.getString("player_uuid")),
                 provider = rs.getString("provider"),
                 chain = rs.getString("chain"),
+                walletAddress = rs.getString("wallet_address"),
                 amount = BigDecimal(rs.getString("amount")),
                 remaining = BigDecimal(rs.getString("remaining")),
                 txRef = rs.getString("tx_ref"),
@@ -297,12 +304,21 @@ class Database(file: File) {
         }
     }
 
-    fun getWithdrawableByChain(uuid: UUID): Map<String, BigDecimal> {
-        val rs = conn.prepareStatement("""
+    fun getWithdrawableByChain(uuid: UUID, walletAddress: String? = null): Map<String, BigDecimal> {
+        val sql = if (walletAddress != null) """
+            SELECT chain, SUM(CAST(remaining AS REAL)) as total
+            FROM deposits WHERE player_uuid = ? AND CAST(remaining AS REAL) > 0
+              AND (wallet_address = ? OR wallet_address IS NULL)
+            GROUP BY chain
+        """ else """
             SELECT chain, SUM(CAST(remaining AS REAL)) as total
             FROM deposits WHERE player_uuid = ? AND CAST(remaining AS REAL) > 0
             GROUP BY chain
-        """).apply { setString(1, uuid.toString()) }.executeQuery()
+        """
+        val stmt = conn.prepareStatement(sql)
+        stmt.setString(1, uuid.toString())
+        if (walletAddress != null) stmt.setString(2, walletAddress)
+        val rs = stmt.executeQuery()
         val results = mutableMapOf<String, BigDecimal>()
         while (rs.next()) {
             results[rs.getString("chain")] = BigDecimal(rs.getString("total"))

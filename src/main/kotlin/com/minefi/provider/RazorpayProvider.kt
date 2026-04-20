@@ -20,6 +20,7 @@ import java.util.UUID
 import java.util.concurrent.CompletableFuture
 import java.util.concurrent.ConcurrentHashMap
 
+@Suppress("DEPRECATION")
 class RazorpayProvider : PaymentProvider {
 
     override val name = "razorpay"

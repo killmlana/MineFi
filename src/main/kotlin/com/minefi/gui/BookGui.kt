@@ -108,7 +108,9 @@ object BookGui {
         addTitle(currentPage, "Withdraw Funds\n\n\n")
         var itemsOnPage = 0
 
-        val byChain = plugin.db.getWithdrawableByChain(player.uniqueId)
+        val walletAddr = (plugin.providers["crypto"] as? com.minefi.provider.CryptoProvider)
+            ?.sessionManager?.activeSessions?.get(player.uniqueId)?.walletAddress
+        val byChain = plugin.db.getWithdrawableByChain(player.uniqueId, walletAddr)
         if (byChain.isEmpty()) {
             addMuted(currentPage, "No withdrawable funds.\n")
         } else {
@@ -119,7 +121,7 @@ object BookGui {
                     addTitle(currentPage, "Withdraw (cont.)\n\n\n")
                     itemsOnPage = 0
                 }
-                if (chain.startsWith("stripe")) {
+                if (chain.startsWith("stripe") || chain.startsWith("razorpay")) {
                     addMuted(currentPage, "$chain: \$${amount.toPlainString()}\n")
                     addMuted(currentPage, "  (non-refundable)\n\n")
                 } else {
@@ -161,7 +163,9 @@ object BookGui {
 
         pages.add(page1)
 
-        val byChain = plugin.db.getWithdrawableByChain(player.uniqueId)
+        val walletAddr2 = (plugin.providers["crypto"] as? com.minefi.provider.CryptoProvider)
+            ?.sessionManager?.activeSessions?.get(player.uniqueId)?.walletAddress
+        val byChain = plugin.db.getWithdrawableByChain(player.uniqueId, walletAddr2)
         if (byChain.isNotEmpty()) {
             val page2 = TextComponent("")
             addTitle(page2, "Deposit Breakdown\n\n\n")

@@ -20,6 +20,7 @@ import java.util.UUID
 import java.util.concurrent.CompletableFuture
 import java.util.concurrent.ConcurrentHashMap
 
+@Suppress("DEPRECATION")
 class StripeProvider : PaymentProvider {
 
     override val name = "stripe"

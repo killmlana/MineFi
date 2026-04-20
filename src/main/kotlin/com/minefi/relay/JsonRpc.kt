@@ -70,6 +70,7 @@ object JsonRpc {
         chains: List<String>,
         methods: List<String>,
         events: List<String>,
+        metadataUrl: String = "https://minefi.pages.dev",
     ): String {
         val payload = mapOf(
             "id" to nextId(),
@@ -90,7 +91,7 @@ object JsonRpc {
                     "metadata" to mapOf(
                         "name" to "MineFi",
                         "description" to "Minecraft WalletConnect Bridge",
-                        "url" to "",
+                        "url" to metadataUrl,
                         "icons" to listOf<String>(),
                     ),
                 ),

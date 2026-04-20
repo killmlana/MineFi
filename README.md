@@ -13,7 +13,9 @@
   <img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="MIT">
 </p>
 
-<!-- Drop a hero gif here: /wallet opening the book, clicking a provider, QR map appears -->
+<p align="center">
+  <img src="https://minefi-assets.saikia.me/clips/WalletConnect.gif" alt="WalletConnect pairing" width="600">
+</p>
 
 ## Install
 
@@ -26,13 +28,29 @@ Restart once to write `plugins/MineFi/config.yml`, fill in your keys, restart ag
 
 ## Features
 
-- **WalletConnect v2** — scan an in-game QR map to pair any wallet
-- **Stripe + Razorpay** — cards, UPI, easy to extend
-- **Vault economy** — every shop plugin keeps working, untouched
-- **Book GUI** — no commands to memorize
-- **EIP-712 withdrawals** — player signs, server relays
-- **Merkle root anchoring** — emergency withdraw if the server disappears
-- **Live conversion** — ETH / INR ↔ USD via CoinGecko
+**WalletConnect v2** — scan an in-game QR map to pair any wallet
+
+<img src="https://minefi-assets.saikia.me/clips/AddFunds.gif" alt="Adding funds" width="600">
+
+**Stripe + Razorpay** — cards, UPI, easy to extend
+
+<img src="https://minefi-assets.saikia.me/clips/Razorpay.gif" alt="Razorpay payment" width="600">
+
+**Crypto withdrawals** — player signs with their wallet, server relays on-chain
+
+<img src="https://minefi-assets.saikia.me/clips/Withdrawal.gif" alt="Withdrawal flow" width="600">
+
+**Transaction history** — every deposit and withdrawal tracked
+
+<img src="https://minefi-assets.saikia.me/clips/history.gif" alt="Transaction history" width="600">
+
+**Vault economy** — every shop plugin keeps working, untouched
+
+**Book GUI** — no commands to memorize
+
+**Merkle root anchoring** — emergency withdraw if the server disappears
+
+**Live conversion** — ETH / INR <-> USD via CoinGecko
 
 ## Commands
 

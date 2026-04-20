@@ -5,6 +5,7 @@ import org.bukkit.map.*
 
 enum class MapState { QR, CONNECTING, CONNECTED }
 
+@Suppress("DEPRECATION")
 class QrMapRenderer(
     private var uri: String,
 ) : MapRenderer() {

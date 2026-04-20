@@ -6,6 +6,7 @@ import com.minefi.provider.CryptoProvider
 import org.bukkit.Material
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
+import org.bukkit.event.player.PlayerDropItemEvent
 import org.bukkit.event.player.PlayerInteractEvent
 import org.bukkit.event.player.PlayerJoinEvent
 import org.bukkit.event.player.PlayerQuitEvent
@@ -54,6 +55,19 @@ class PlayerListener(private val plugin: MineFiPlugin) : Listener {
 
         event.isCancelled = true
         BookGui.openMainMenu(plugin, event.player)
+    }
+
+    @EventHandler
+    fun onPlayerDropItem(event: PlayerDropItemEvent) {
+        val item = event.itemDrop.itemStack
+        if (isWalletItem(item)) {
+            event.isCancelled = true
+            return
+        }
+        val crypto = plugin.providers["crypto"] as? CryptoProvider ?: return
+        if (crypto.isQrMap(item)) {
+            event.isCancelled = true
+        }
     }
 
     @EventHandler

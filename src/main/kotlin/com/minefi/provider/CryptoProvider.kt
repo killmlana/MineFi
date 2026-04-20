@@ -41,22 +41,28 @@ class CryptoProvider : PaymentProvider {
             sessionManager.handleRelayMessage(topic, message)
         }
 
+        val metadataUrl = config.getString("walletconnect.metadata-url") ?: "https://minefi.pages.dev"
+
         sessionManager = SessionManager(
             relay = relayClient,
             db = plugin.db,
             logger = plugin.logger,
             chainId = chainId,
+            metadataUrl = metadataUrl,
             onSessionEstablished = { uuid, address ->
                 plugin.server.scheduler.runTask(plugin) { ->
                     val player = plugin.server.getPlayer(uuid)
                     player?.sendMessage("§a§lWallet connected! §f${address.take(6)}...${address.takeLast(4)}")
                     activeRenderers.remove(uuid)
-                    if (player != null) {
-                        val held = player.inventory.itemInMainHand
-                        if (held.type == Material.FILLED_MAP && held.itemMeta?.displayName == "§6§lWallet Connect") {
-                            player.inventory.setItemInMainHand(null)
-                        }
-                    }
+                    removeQrMap(player)
+                }
+            },
+            onSessionFailed = { uuid, reason ->
+                plugin.server.scheduler.runTask(plugin) { ->
+                    val player = plugin.server.getPlayer(uuid)
+                    player?.sendMessage("§c§lConnection failed: §f$reason")
+                    activeRenderers.remove(uuid)
+                    removeQrMap(player)
                 }
             },
             onSessionRequest = { uuid, _, result ->
@@ -182,4 +188,16 @@ class CryptoProvider : PaymentProvider {
     }
 
     override fun supportsWithdraw(): Boolean = true
+
+    private fun removeQrMap(player: Player?) {
+        if (player == null) return
+        val held = player.inventory.itemInMainHand
+        if (held.type == Material.FILLED_MAP && held.itemMeta?.displayName == "§6§lWallet Connect") {
+            player.inventory.setItemInMainHand(com.minefi.listeners.PlayerListener.createWalletItem())
+        }
+    }
+
+    fun isQrMap(item: ItemStack?): Boolean {
+        return item != null && item.type == Material.FILLED_MAP && item.itemMeta?.displayName == "§6§lWallet Connect"
+    }
 }

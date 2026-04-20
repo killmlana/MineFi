@@ -38,7 +38,9 @@ class SessionManager(
     private val db: Database,
     private val logger: Logger,
     private val chainId: Int,
+    private val metadataUrl: String = "https://minefi.pages.dev",
     private val onSessionEstablished: (UUID, String) -> Unit,
+    private val onSessionFailed: (UUID, String) -> Unit = { _, _ -> },
     private val onSessionRequest: (UUID, Long, String) -> Unit,
 ) {
 
@@ -58,9 +60,10 @@ class SessionManager(
         val pubKeyHex = keyPair.publicKey.joinToString("") { "%02x".format(it) }
         val proposePayload = JsonRpc.sessionPropose(
             publicKey = pubKeyHex,
-            chains = listOf("eip155:1"),
-            methods = listOf("eth_sendTransaction", "personal_sign", "eth_sign"),
+            chains = listOf("eip155:$chainId"),
+            methods = listOf("eth_sendTransaction", "personal_sign", "eth_signTypedData_v4"),
             events = listOf("chainChanged", "accountsChanged"),
+            metadataUrl = metadataUrl,
         )
         val proposeId = JsonParser.parseString(proposePayload).asJsonObject.get("id").asLong
 
@@ -129,7 +132,9 @@ class SessionManager(
 
             val error = obj.getAsJsonObject("error")
             if (error != null) {
-                logger.warning("Session proposal rejected: ${error.get("message")?.asString}")
+                val reason = error.get("message")?.asString ?: "Unknown error"
+                logger.warning("Session proposal rejected: $reason")
+                onSessionFailed(pairing.playerUuid, reason)
                 pendingPairings.remove(pairing.topic)
             }
         } catch (e: Exception) {

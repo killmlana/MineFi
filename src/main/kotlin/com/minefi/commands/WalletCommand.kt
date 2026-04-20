@@ -119,8 +119,13 @@ class WalletCommand(private val plugin: MineFiPlugin) : CommandExecutor, TabComp
                         return@runTask
                     }
 
+                    val walletAddr = if (providerName == "crypto") {
+                        (plugin.providers["crypto"] as? com.minefi.provider.CryptoProvider)
+                            ?.sessionManager?.activeSessions?.get(player.uniqueId)?.walletAddress
+                    } else null
+
                     plugin.db.adjustApprovedBalance(player.uniqueId, usdAmount)
-                    plugin.db.saveDeposit(player.uniqueId, providerName, currency, usdAmount, result.txRef)
+                    plugin.db.saveDeposit(player.uniqueId, providerName, currency, usdAmount, result.txRef, walletAddr)
 
                     plugin.db.saveTransaction(TransactionRecord(
                         txHash = result.txRef,

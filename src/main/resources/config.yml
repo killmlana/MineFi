@@ -4,6 +4,7 @@ providers:
     walletconnect:
       project-id: ""
       relay-url: "wss://relay.walletconnect.com"
+      metadata-url: "https://minefi.pages.dev"
     chain:
       rpc-url: ""
       chain-id: 1
