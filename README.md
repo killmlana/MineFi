@@ -1,29 +1,20 @@
 <div align="center">
-
+<br>
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/media/logo-dark.png">
   <source media="(prefers-color-scheme: light)" srcset="docs/media/logo.png">
-  <img alt="MineFi" src="docs/media/logo.png" width="280">
+  <img alt="MineFi" src="docs/media/logo.png" width="220">
 </picture>
-
-<br><br>
-
-Economy plugin for Minecraft servers.
-Integrates crypto wallets, card, and UPI payment processing with the Vault API.
-
 <br>
-
+<p>Economy plugin for Minecraft servers.<br>Integrates crypto wallets, card, and UPI payment processing with the Vault API.</p>
 <a href="https://minefi.pages.dev">Website</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="docs/CONFIGURATION.md">Configuration</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="docs/FEATURES.md">Features</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="docs/CONTRACT.md">Contract</a>
-
-<br>
-
+<br><br>
 <img src="https://img.shields.io/badge/Minecraft-1.20%2B-62B47A?style=flat-square&logo=minecraft&logoColor=white" alt="Minecraft">
 <img src="https://img.shields.io/badge/Kotlin-1.9-7F52FF?style=flat-square&logo=kotlin&logoColor=white" alt="Kotlin">
 <img src="https://img.shields.io/badge/Java-17%2B-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java">
 <img src="https://img.shields.io/badge/Vault-API-4B8BBE?style=flat-square" alt="Vault">
 <img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="MIT">
-
-
+<br><br>
 </div>
 
 ## About
