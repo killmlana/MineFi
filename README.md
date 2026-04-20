@@ -25,7 +25,7 @@ Integrates crypto wallets, card, and UPI payment processing with the Vault API.
 
 <br><br>
 
-<img src="https://minefi-assets.saikia.me/clips/WalletConnect.gif" alt="WalletConnect pairing" width="600">
+<img src="https://minefi-assets.saikia.me/clips/walletconnect-pair.gif" alt="WalletConnect pairing" width="600">
 
 </div>
 
@@ -39,7 +39,7 @@ Balances are managed server-side in USD. The crypto path uses an on-chain escrow
 
 **WalletConnect v2** &mdash; scan an in-game QR map to pair any wallet
 
-<img src="https://minefi-assets.saikia.me/clips/WalletConnect.gif" alt="WalletConnect pairing" width="600">
+<img src="https://minefi-assets.saikia.me/clips/walletconnect-pair.gif" alt="WalletConnect pairing" width="600">
 
 **Crypto deposits** &mdash; deposit ETH through the in-game book
 
