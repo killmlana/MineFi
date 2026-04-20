@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/media/logo-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="docs/media/logo.svg">
-  <img alt="MineFi" src="docs/media/logo.svg" width="280">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/media/logo-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="docs/media/logo.png">
+  <img alt="MineFi" src="docs/media/logo.png" width="280">
 </picture>
 
 <br><br>
