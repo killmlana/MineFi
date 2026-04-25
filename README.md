@@ -230,6 +230,22 @@ MineFi/
 | [Contract](docs/CONTRACT.md) | `MineFiVault.sol` reference |
 | [Architecture](docs/ARCHITECTURE.md) | How the pieces fit |
 
+## Known Limitations
+
+**Per-transaction signing overhead.** Every on-chain action requires a wallet signature round-trip through the WalletConnect relay. That blocks the player on a manual approval for each deposit or withdrawal. A session-key pattern (sign once, authorize bounded future txs) would fix this but hasn't been implemented yet.
+
+**No integration testing on production providers.** Stripe's live keys need a verified business entity, Razorpay needs a registered Indian business with KYC. Current testing is limited to Stripe test mode, Razorpay test mode, and a local Hardhat chain. Looking for testers with live merchant accounts to validate edge cases around refunds, disputes, and regional payment methods.
+
+**WalletConnect relay is centralized.** If `relay.walletconnect.com` goes down, pairing fails. Running a self-hosted relay is on the roadmap.
+
+**Merkle root gas costs scale with chain.** Hourly publishing on Ethereum mainnet is prohibitive. Tested on Hardhat; Base / Arbitrum deployment is planned but uncosted in real-world volume.
+
+**Single hot wallet, single server role.** The escrow contract trusts one relayer address. Multi-sig or role rotation isn't supported. If the hot wallet key leaks, players need to use emergency withdrawal.
+
+**ERC-20 deposits not supported.** Only the native chain token (ETH on mainnet/L2s). USDC/USDT support requires a new contract.
+
+Bug reports and PRs welcome — [open an issue](https://github.com/killmlana/MineFi/issues/new).
+
 ## License
 
 [MIT](LICENSE)
