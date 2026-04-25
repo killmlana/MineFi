@@ -217,9 +217,9 @@ MineFi/
 | [Contract](docs/CONTRACT.md) | `MineFiVault.sol` reference |
 | [Architecture](docs/ARCHITECTURE.md) | How the pieces fit |
 
-## Known Limitations
+## Known Issues
 
-| Limitation | Details |
+| Issue | Details |
 |---|---|
 | Per-transaction signing | Every on-chain action requires a wallet round-trip through the WalletConnect relay and blocks the player on manual approval. A session-key pattern would fix this. |
 | No live provider testing | Stripe live keys need a verified business; Razorpay needs a registered Indian business with KYC. Current testing is limited to Stripe test mode, Razorpay test mode, and local Hardhat. Looking for testers with live merchant accounts. |
