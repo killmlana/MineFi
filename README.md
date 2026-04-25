@@ -223,7 +223,6 @@ MineFi/
 |---|---|
 | Per-transaction signing | Every on-chain action requires a wallet round-trip through the WalletConnect relay and blocks the player on manual approval. A session-key pattern would fix this. |
 | No live provider testing | Stripe live keys need a verified business; Razorpay needs a registered Indian business with KYC. Current testing is limited to Stripe test mode, Razorpay test mode, and local Hardhat. Looking for testers with live merchant accounts. |
-| Centralized relay | If `relay.walletconnect.com` is down, pairing fails. Self-hosted relay on the roadmap. |
 | Merkle gas on mainnet | Hourly publishing is prohibitive on Ethereum mainnet. Tested on Hardhat; Base / Arbitrum deployment planned but uncosted in real-world volume. |
 | Single hot wallet | The contract trusts one relayer address. No multi-sig or role rotation. If the key leaks, players must use emergency withdrawal. |
 | ETH only | Native chain token only. USDC/USDT support requires a new contract. |
