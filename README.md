@@ -206,19 +206,6 @@ MineFi/
 | [`vault/`](src/main/kotlin/com/minefi/vault/) | Vault economy bridge |
 | [`chain/`](src/main/kotlin/com/minefi/chain/) | [web3j](https://github.com/hyperledger/web3j) RPC, transaction signing, contract calls |
 
-## Technologies
-
-| Library | Used for |
-|---|---|
-| [web3j](https://github.com/hyperledger/web3j) | EVM transaction signing, contract interaction |
-| [BouncyCastle](https://www.bouncycastle.org/java.html) | X25519, Ed25519, HKDF, ChaCha20-Poly1305, Keccak-256 |
-| [ZXing](https://github.com/zxing/zxing) | QR code generation |
-| [OkHttp](https://square.github.io/okhttp/) | HTTP + WebSocket for relay, Stripe, Razorpay, CoinGecko |
-| [OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts) | [EIP712](https://eips.ethereum.org/EIPS/eip-712), ECDSA, MerkleProof, Nonces |
-| [Vault API](https://github.com/MilkBowl/VaultAPI) | Economy provider interface |
-| [SQLite (xerial)](https://github.com/xerial/sqlite-jdbc) | Balances, sessions, deposits, transactions |
-| [Silkscreen](https://fonts.google.com/specimen/Silkscreen) | Landing page pixel font |
-
 ## Documentation
 
 | | |
@@ -232,17 +219,14 @@ MineFi/
 
 ## Known Limitations
 
-**Per-transaction signing overhead.** Every on-chain action requires a wallet signature round-trip through the WalletConnect relay. That blocks the player on a manual approval for each deposit or withdrawal. A session-key pattern (sign once, authorize bounded future txs) would fix this but hasn't been implemented yet.
-
-**No integration testing on production providers.** Stripe's live keys need a verified business entity, Razorpay needs a registered Indian business with KYC. Current testing is limited to Stripe test mode, Razorpay test mode, and a local Hardhat chain. Looking for testers with live merchant accounts to validate edge cases around refunds, disputes, and regional payment methods.
-
-**WalletConnect relay is centralized.** If `relay.walletconnect.com` goes down, pairing fails. Running a self-hosted relay is on the roadmap.
-
-**Merkle root gas costs scale with chain.** Hourly publishing on Ethereum mainnet is prohibitive. Tested on Hardhat; Base / Arbitrum deployment is planned but uncosted in real-world volume.
-
-**Single hot wallet, single server role.** The escrow contract trusts one relayer address. Multi-sig or role rotation isn't supported. If the hot wallet key leaks, players need to use emergency withdrawal.
-
-**ERC-20 deposits not supported.** Only the native chain token (ETH on mainnet/L2s). USDC/USDT support requires a new contract.
+| Limitation | Details |
+|---|---|
+| Per-transaction signing | Every on-chain action requires a wallet round-trip through the WalletConnect relay and blocks the player on manual approval. A session-key pattern would fix this. |
+| No live provider testing | Stripe live keys need a verified business; Razorpay needs a registered Indian business with KYC. Current testing is limited to Stripe test mode, Razorpay test mode, and local Hardhat. Looking for testers with live merchant accounts. |
+| Centralized relay | If `relay.walletconnect.com` is down, pairing fails. Self-hosted relay on the roadmap. |
+| Merkle gas on mainnet | Hourly publishing is prohibitive on Ethereum mainnet. Tested on Hardhat; Base / Arbitrum deployment planned but uncosted in real-world volume. |
+| Single hot wallet | The contract trusts one relayer address. No multi-sig or role rotation. If the key leaks, players must use emergency withdrawal. |
+| ETH only | Native chain token only. USDC/USDT support requires a new contract. |
 
 Bug reports and PRs welcome — [open an issue](https://github.com/killmlana/MineFi/issues/new).
 
